@@ -1,7 +1,14 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const app = express();
-const port = 3000;
+const cors = require("cors"); // Import the CORS middleware
+
+const port = 8000;
+
+// Use the CORS middleware to allow requests from any origin
+app.use(cors());
+
+app.use(express.json());
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
